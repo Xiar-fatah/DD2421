@@ -49,3 +49,13 @@ Answer:
 
 Information gain is calculated using the current entropy and subtracting the weighted sum of the split subset entropy.  If the information gain is high the entropy of the subset is low. That is the subsets are “unmixed”. The subsets that have the lowest uncertainty i.e lowest entropy gives us the highest information gain. As we want to unmix each subset as much as possible using information gain is a good heuristic for splitting.
 			
+5.
+> Compute the train and test set errors for the three Monk datasets for the full trees. Were your assumptions about the datasets correct? Explain the results you get for the training and test datasets.
+
+Answer: 
+
+|       | E_train          | E_test |
+| ------------- |:-------------:| :-------------:| 
+| MONK-1    | 1  |  0.8287 | 
+| MONK-2      | 1   |   0.6921|
+| MONK-3 |    1  |  0.9444 |

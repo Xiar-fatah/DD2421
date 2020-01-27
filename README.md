@@ -35,3 +35,17 @@ Answer:
 | MONK-1  | 0.075   | 0.0058 | 0.0047  | 0.0263 | 0.2870 | 0.00075 |
 | MONK-2  | 0.00375 | 0.0024 | 0.0010  | 0.0156 | 0.0172 | 0.0062  |
 | MONK-3  | 0.00712 | 0.2937 | 0.00083 | 0.0028 | 0.2559 | 0.0070  |
+
+
+4.
+>For splitting we choose the attribute that maximizes
+the information gain, Eq.3. Looking at Eq.3 how does the entropy of
+the subsets, Sk, look like when the information gain is maximized?
+How can we motivate using the information gain as a heuristic for
+picking an attribute for splitting? Think about reduction in entropy
+after the split and what the entropy implies.
+
+Answer:
+
+Information gain is calculated using the current entropy and subtracting the weighted sum of the split subset entropy.  If the information gain is high he entropy of the subset is low. That is the subsets “unmixed”. The subsets that have the lowest uncertainty i.e lowest entropy gives us the highest information gain.
+			

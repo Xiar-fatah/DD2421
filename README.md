@@ -77,5 +77,9 @@ of the parameter fraction 2 f0:3; 0:4; 0:5; 0:6; 0:7; 0:8g.
 Answer:
 
 <img src="monk1.png"
-     alt="Markdown Monster icon"
+     alt="Monk-1"
+     style="float: left; margin-right: 10px;" />
+
+<img src="monk2.png"
+     alt="Monk-3"
      style="float: left; margin-right: 10px;" />

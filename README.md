@@ -75,3 +75,7 @@ fraction. Plot the classification error on the test sets as a function
 of the parameter fraction 2 f0:3; 0:4; 0:5; 0:6; 0:7; 0:8g.
 
 Answer:
+
+<img src="monk1.png"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />

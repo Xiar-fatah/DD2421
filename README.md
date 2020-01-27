@@ -19,8 +19,7 @@ Answer:
 | MONK-2      | 0.957117428264771   |  
 | MONK-3 |    0.9998061328047111  | 
 
-> Explain entropy for a uniform distribution and a
-non-uniform distribution, present some example distributions with
+> Explain entropy for a uniform distribution and a non-uniform distribution, present some example distributions with
 high and low entropy.
 
-Answer: The entropy
+Answer: Entropy measures the uncertainty. Hence in reference to lecture 2, rolling a fake dice, a nonuniform distribution, with an higher probability to land on one side implies the entropy becomes numerically lower in comparison to rolling a real dice, which is a uniform distribution. In other words since the probability is higher for one side on the fake dice, the total uncertainty of the total fake dice is lower than for a real dice.

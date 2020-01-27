@@ -29,8 +29,9 @@ Answer: Entropy measures the uncertainty. Hence in reference to lecture 2, rolli
 >Use the function averageGain (dened in dtree.py) to calculate the expected information gain corresponding to each of the six attributes.  Note that the attributes are represented as instances of the class Attribute (dened in monkdata.py) which you can access via m.attributes[0], ..., m.attributes[5]. Based on the results, which attribute should be used for splitting the examples at the root node?
 
 Answer: 
+
 | Dataset | a_1     | a_2    | a_3     | a_4    | a_5    | a_6     |
-|---------|---------|--------|---------|--------|--------|---------|
+|---------|:---------:|--------|---------|--------|--------|---------|
 | MONK-1  | 0.075   | 0.0058 | 0.0047  | 0.0263 | 0.2870 | 0.00075 |
 | MONK-2  | 0.00375 | 0.0024 | 0.0010  | 0.0156 | 0.0172 | 0.0062  |
 | MONK-3  | 0.00712 | 0.2937 | 0.00083 | 0.0028 | 0.2559 | 0.0070  |

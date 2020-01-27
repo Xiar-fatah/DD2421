@@ -80,6 +80,6 @@ Answer:
      alt="Monk-1"
      style="float: left; margin-right: 10px;" />
 
-<img src="monk2.png"
+<img src="monk3.png"
      alt="Monk-3"
      style="float: left; margin-right: 10px;" />

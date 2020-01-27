@@ -59,3 +59,19 @@ Answer:
 | MONK-1    | 1  |  0.8287 | 
 | MONK-2      | 1   |   0.6921|
 | MONK-3 |    1  |  0.9444 |
+
+In consideration to the assumptions the results are correct. E_train is always 1 because the model is trained on the data. E_test measures the accuracy of datasets that the model has not been trained on.
+
+6.
+> Explain pruning from a bias variance trade-off perspective.
+
+Answer: The depth of the tree determines the complexity. High complexity yields high variance and low bias. However, pruning lowers the depth and therefore reduces the variance but increases the bias.
+
+7.
+> Evaluate the effect pruning has on the test error for
+the monk1 and monk3 datasets, in particular determine the optimal
+partition into training and pruning by optimizing the parameter
+fraction. Plot the classification error on the test sets as a function
+of the parameter fraction 2 f0:3; 0:4; 0:5; 0:6; 0:7; 0:8g.
+
+Answer:

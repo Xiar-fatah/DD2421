@@ -25,3 +25,4 @@ high and low entropy.
 Answer: Entropy measures the uncertainty. Hence in reference to lecture 2, rolling a fake dice, a nonuniform distribution, with an higher probability to land on one side implies the entropy becomes numerically lower in comparison to rolling a real dice, which is a uniform distribution. In other words since the probability is higher for one side on the fake dice, the total uncertainty of the total fake dice is lower than for a real dice.
 3.
 > Use the function averageGain (dened in dtree.py) to calculate the expected information gain corresponding to each of the six attributes. Note that the attributes are represented as instances of the class Attribute (defined in monkdata.py) which you can access via m.attributes[0], ..., m.attributes[5]. Based on the results, which attribute should be used for splitting the examples at the root node?
+afasfasf

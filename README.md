@@ -83,3 +83,5 @@ Answer:
 <img src="monk3.png"
      alt="Monk-3"
      style="float: left; margin-right: 10px;" />
+
+From both figures we can see that the error is reduced for a higher fraction of training data.

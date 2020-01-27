@@ -47,5 +47,5 @@ after the split and what the entropy implies.
 
 Answer:
 
-Information gain is calculated using the current entropy and subtracting the weighted sum of the split subset entropy.  If the information gain is high he entropy of the subset is low. That is the subsets “unmixed”. The subsets that have the lowest uncertainty i.e lowest entropy gives us the highest information gain.
+Information gain is calculated using the current entropy and subtracting the weighted sum of the split subset entropy.  If the information gain is high he entropy of the subset is low. That is the subsets are “unmixed”. The subsets that have the lowest uncertainty i.e lowest entropy gives us the highest information gain. As we want to unmix each subset as much as possible using information gain is a good heuristic for splitting.
 			

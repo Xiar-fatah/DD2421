@@ -36,6 +36,7 @@ Answer:
 | MONK-2  | 0.00375 | 0.0024 | 0.0010  | 0.0156 | 0.0172 | 0.0062  |
 | MONK-3  | 0.00712 | 0.2937 | 0.00083 | 0.0028 | 0.2559 | 0.0070  |
 
+The attribute with the highest value on the information gain is selected for splitting. For MONK-1: a_5, MONK-2: a_5 and for MONK-3: a_2.
 
 4.
 >For splitting we choose the attribute that maximizes

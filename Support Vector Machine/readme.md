@@ -45,7 +45,7 @@ Answer: For the polynomial case as p increases the decision boundary becomes mor
 4.
 > Explore the role of the slack parameter C. What happens for very large/small values?
 
-Answer: For small values on C the misclassification rate is higher and for higher values on C the misclassifciation rate is lower.
+Answer: For small values on C the misclassification rate is higher and for higher values on C the misclassifciation rate is lower. Note that C is multiplied with the error variable that measures the amount of misclassification.
 
 <p float="left">
   <img src="C=1.png" width="400" />
@@ -55,4 +55,4 @@ Answer: For small values on C the misclassification rate is higher and for highe
 5.
 > Imagine that you are given data that is not easily separable. When should you opt for more slack rather than going for a more complex model (kernel) and vice versa?
 
-Answer: 
+Answer: Depending if the data contains a lot of noise and is in a low dimensionality, opting for more slack is a better option. However, if the complexity of the data is high, it is more viable to use a more complex model for classification. 

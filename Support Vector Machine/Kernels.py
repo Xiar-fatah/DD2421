@@ -8,12 +8,12 @@ def lin_ker(i,j):
     lin_ker = np.dot(i,j) #Linear kernel
     return lin_ker
 def pol_ker(i,j):
-    p = 1
+    p = 2
     pol_ker = pow((np.dot(i,j)+1),p)  #Polynomial kernel
     return pol_ker
 
 def RBF_ker(i,j):
-    sigma = 1
+    sigma = 2
     RBF_don = 2*pow(sigma,2)
-    RBF_ker = pow(np.e,-pow(np.linalg(i-j),2)/RBF_don) #Radial Basis Function kernel
+    RBF_ker = pow(np.e,-pow(np.linalg.norm(i-j),2)/RBF_don) #Radial Basis Function kernel
     return RBF_ker

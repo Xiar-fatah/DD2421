@@ -7,6 +7,9 @@ import Kernels
 inputs = data.inputs
 targets = data.targets
 N = data.N
+plt.plot([p[0] for p in data.classA], [p[1] for p in data.classA], 'b.')
+plt.plot([p[0] for p in data.classB], [p[1] for p in data.classB], 'r.')
+plt.axis("equal") 
 # From the file Kernel import wanted kernel:
 # in_ker, pol_ker or RBF_ker,
 # see explanation in Kernel.py
@@ -110,7 +113,9 @@ alpha = ret['x']
 nonzero = [(alpha[i], inputs[i], targets[i]) for i in range(N) if abs(alpha[i]) > 10e-5]
         
 b = b_cal()        
-        
+############# Plot the data #############
+
+
 
 ############# Plot the results #############
 xgrid = np.linspace(-5, 5) 
@@ -118,6 +123,8 @@ ygrid= np.linspace(-4, 4)
 grid = np.array([[ind(x, y,b) for x in xgrid ] for y in ygrid])
 plt.contour (xgrid , ygrid , grid , (-1.0, 0.0, 1.0),
 colors=('red', 'black', 'blue'), linewidths=(1, 3, 1))
+
+
         
         
             

@@ -30,12 +30,12 @@ import matplotlib.pyplot as plt
     
 """
 np.random.seed(100) #same values each iteration
-
+cluster = 0.2
 classA = np.concatenate ( 
-        (np.random.randn(10, 2) * 0.2 + [1.5, 0.5],
-         np.random.randn(10, 2) * 0.2 + [-1.5, 0.5])) 
+        (np.random.randn(10, 2) * 0.01 + [1.5, 0.5],
+         np.random.randn(10, 2) * 0.01+ [-1.5, 0.5])) 
 
-classB = np.random.randn(20, 2) * 0.2 + [0.0 , -0.5]
+classB = np.random.randn(20, 2) * cluster + [0.0 , -0.5]
 
 inputs = np.concatenate ((classA , classB)) 
 targets = np.concatenate (

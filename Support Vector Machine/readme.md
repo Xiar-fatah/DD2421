@@ -49,5 +49,5 @@ Answer: For small values on C the misclassification rate is higher and for highe
 
 <p float="left">
   <img src="C=1.png" width="400" />
-  <img src="C=1000.png" width="400" /> 
+  <img src="C=100.png" width="400" /> 
 </p>

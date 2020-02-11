@@ -22,7 +22,7 @@ Answer: Using the same cluster type as the non linearly separable dataset as the
 3. 
 > The non-linear kernels have parameters; explore how they influence the decision boundary. Reason about this in terms of the bias-variance trade-off.
 
-Answer: For the polynomial case as p increases the decision boundary becomes more complex. Thus the decision boundary implies that the variance is high and the bias low, and for for lower values on p the opposite occurs. However, for the radial basis function the development appears for lower values on sigma, the variance is high and the bias low, and for higher values on sigma, the variance is low and the bias high.
+Answer: For the polynomial case as p increases the decision boundary becomes more complex. Thus the decision boundary implies that the variance is high and the bias low, and for for lower values on p the opposite occurs. However, for the radial basis function the equivalent development appears for lower values on sigma, the variance is high and the bias low, and for higher values on sigma, the variance is low and the bias high.
 
 
 <p float="left">

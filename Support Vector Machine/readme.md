@@ -51,3 +51,8 @@ Answer: For small values on C the misclassification rate is higher and for highe
   <img src="C=1.png" width="400" />
   <img src="C=100.png" width="400" /> 
 </p>
+
+5.
+> Imagine that you are given data that is not easily separable. When should you opt for more slack rather than going for a more complex model (kernel) and vice versa?
+
+Answer: 

@@ -10,3 +10,5 @@ Answer: When the dataset is linearly separable the minimize function can find a 
 > Implement the two non-linear kernels. You should be able to clas- sify very hard data sets with these.
 
 ![alt-text-3](nonlinear_pol.png "linear kernel") ![alt-text-4](nonlinear_RBF.png "nonlinear kernel")
+
+Answer: Using the same cluster type as the non linearly separable dataset as the first figure, which the linear kernel could not find a solution to. The polynomial and radial basis function kernel solves and draws a boundary decision to.

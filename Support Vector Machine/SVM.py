@@ -109,9 +109,6 @@ alpha = ret['x']
 """
 nonzero = [(alpha[i], inputs[i], targets[i]) for i in range(N) if abs(alpha[i]) > 10e-5]
         
-        
-        
-        
 b = b_cal()        
         
 

@@ -14,7 +14,7 @@ plt.axis("equal")
 # From the file Kernel import wanted kernel:
 # in_ker, pol_ker or RBF_ker,
 # see explanation in Kernel.py
-kernel = Kernels.RBF_ker
+kernel = Kernels.lin_ker
 
 """
     Define a function which implements equation (4).
@@ -86,7 +86,7 @@ for i in range(0,len(P)):
     and upper bounds for the corresponding element in alpha. To constrain the alpha
     values to be in the range 0 ≤ alpha ≤ C, we can set bounds=[(0, C) for b in range(N)].
 """
-C = 100
+C = 1000
 B = [(0, C) for b in range(N)]
 XC = {'type':'eq', 'fun':zerofun}
 start = np.zeros(N) 
@@ -125,7 +125,7 @@ grid = np.array([[ind(x, y,b) for x in xgrid ] for y in ygrid])
 plt.contour (xgrid , ygrid , grid , (-1.0, 0.0, 1.0),
 colors=('red', 'black', 'blue'), linewidths=(1, 3, 1))
 
-plt.title(("RBF kernel with sigma = 7 for linearly separable dataset"))
+plt.title(("Linear kernel with C = 1000"))
 
         
         

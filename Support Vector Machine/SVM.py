@@ -10,10 +10,11 @@ N = data.N
 plt.plot([p[0] for p in data.classA], [p[1] for p in data.classA], 'b.')
 plt.plot([p[0] for p in data.classB], [p[1] for p in data.classB], 'r.')
 plt.axis("equal") 
+
 # From the file Kernel import wanted kernel:
 # in_ker, pol_ker or RBF_ker,
 # see explanation in Kernel.py
-kernel = Kernels.lin_ker
+kernel = Kernels.RBF_ker
 
 """
     Define a function which implements equation (4).
@@ -124,6 +125,7 @@ grid = np.array([[ind(x, y,b) for x in xgrid ] for y in ygrid])
 plt.contour (xgrid , ygrid , grid , (-1.0, 0.0, 1.0),
 colors=('red', 'black', 'blue'), linewidths=(1, 3, 1))
 
+plt.title(("RBF kernel with sigma = 3 for linearly separable dataset"))
 
         
         

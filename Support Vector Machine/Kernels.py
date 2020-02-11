@@ -13,7 +13,7 @@ def pol_ker(i,j):
     return pol_ker
 
 def RBF_ker(i,j):
-    sigma = 2
+    sigma = 3
     RBF_don = 2*pow(sigma,2)
     RBF_ker = pow(np.e,-pow(np.linalg.norm(i-j),2)/RBF_don) #Radial Basis Function kernel
     return RBF_ker

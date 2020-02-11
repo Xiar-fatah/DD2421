@@ -42,3 +42,12 @@ Answer: For the polynomial case as p increases the decision boundary becomes mor
   <img src="sigma=10.png" width="400" /> 
 </p>
 
+4.
+> Explore the role of the slack parameter C. What happens for very large/small values?
+
+Answer: For small values on C the misclassification rate is higher and for higher values on C the misclassifciation rate is lower.
+
+<p float="left">
+  <img src="C=1.png" width="400" />
+  <img src="C=1000.png" width="400" /> 
+</p>

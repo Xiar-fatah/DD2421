@@ -9,6 +9,17 @@ Answer: When the dataset is linearly separable the minimize function can find a 
 2.
 > Implement the two non-linear kernels. You should be able to clas- sify very hard data sets with these.
 
-![alt-text-3](nonlinear_pol.png "linear kernel") ![alt-text-4](nonlinear_RBF.png "nonlinear kernel")
+![alt-text-3](nonlinear_pol.png "polynomial kernel") ![alt-text-4](nonlinear_RBF.png "RBF kernel")
 
 Answer: Using the same cluster type as the non linearly separable dataset as the first figure, which the linear kernel could not find a solution to. The polynomial and radial basis function kernel solves and draws a boundary decision to.
+
+3. 
+> The non-linear kernels have parameters; explore how they influence the decision boundary. Reason about this in terms of the bias-variance trade-off.
+
+Answer: 
+
+![alt-text-5](p=1.png "polynomial kernel") ![alt-text-6](p=3.png "polynomial kernel")
+![alt-text-7](p=7.png "polynomial kernel") ![alt-text-8](p=10.png "polynomial kernel")
+
+![alt-text-9](sigma=1.png "RBF kernel") ![alt-text-10](sigma=3.png "RBF kernel")
+![alt-text-11](p=7.png "polynomial kernel") ![alt-text-12](p=10.png "polynomial kernel")

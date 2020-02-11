@@ -125,7 +125,7 @@ grid = np.array([[ind(x, y,b) for x in xgrid ] for y in ygrid])
 plt.contour (xgrid , ygrid , grid , (-1.0, 0.0, 1.0),
 colors=('red', 'black', 'blue'), linewidths=(1, 3, 1))
 
-plt.title(("RBF kernel with sigma = 3 for linearly separable dataset"))
+plt.title(("RBF kernel with sigma = 7 for linearly separable dataset"))
 
         
         

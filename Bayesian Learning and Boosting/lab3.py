@@ -44,9 +44,18 @@ def computePrior(labels, W=None):
 
     # TODO: compute the values of prior for each class!
     # ==========================
-    
+    """
+    the class prior, p(k), is given by N_k/N
+    """
+    classes = np.unique(labels) # Get the unique examples
+    # Iterate over both index and value
+    for jdx,classes in enumerate(classes):
+        idx = labels == classes # Returns a true or false with the length of y
+        # Or more compactly extract the indices for which y==class is true,
+        # analogous to MATLAB’s find
+        idx = np.where(labels==classes)[0]
+        prior[jdx] = len(idx)/len(labels)
     # ==========================
-
     return prior
 
 # NOTE: you do not need to handle the W argument for this part!
@@ -103,7 +112,7 @@ def classifyBayes(X, prior, mu, sigma):
     Npts = X.shape[0]
     Nclasses,Ndims = np.shape(mu)
     logProb = np.zeros((Nclasses, Npts))
-
+    print(logProb)
     # TODO: fill in the code to compute the log posterior logProb!
     # ==========================
     
@@ -141,6 +150,8 @@ class BayesClassifier(object):
 
 X, labels = genBlobs(centers=5)
 mu, sigma = mlParams(X,labels)
+prior = computePrior(labels) # Test
+classifyBayes(X, prior, mu, sigma)
 plotGaussian(X,labels,mu,sigma)
 
 

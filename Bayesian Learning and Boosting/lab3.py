@@ -94,7 +94,7 @@ def mlParams(X, labels, W=None):
         Assuming the first column is the x-values and the second column is the
         y-values.
         """
-        for i in range(2): 
+        for i in range(Ndims): 
             temp = []
             for rows in range(0,xlc.shape[0]):
                 temp.append(pow(xlc[rows][i]-mu[jdx][i],2))
@@ -124,9 +124,7 @@ def classifyBayes(X, prior, mu, sigma):
         for data_points in range(0,Npts):
             # In reference to logProb = np.zeros((Nclasses, Npts))
             # Note that sigma only has values on the diagonal
-            logProb[classes][data_points] = ln_sigma
-            - 0.5 * np.inner(sub_mean[data_points]/np.diag(sigma[classes]), sub_mean[data_points])
-            + ln_class_prior
+            logProb[classes][data_points] = ln_sigma - 0.5 * np.inner(sub_mean[data_points]/np.diag(sigma[classes]), sub_mean[data_points]) + ln_class_prior
             
         
     # ==========================
@@ -175,11 +173,11 @@ plotGaussian(X,labels,mu,sigma)
 
 
 
-#testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
+testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
 
 
 
-#plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
+plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
 
 
 # ## Boosting functions to implement

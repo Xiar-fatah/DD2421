@@ -53,6 +53,9 @@ Answer:
         prior[jdx] = len(idx)/len(labels)
 ```
 > b) Write a function classifyBayes(X,prior,mu,sigma) that computes the dis- criminant function values for all classes and data points, and classifies each point to belong to the max discriminant value. The function should return a length N vector containing the predicted class value for each point.
+
+Answer: 
+
 ```python
 
 # For each class 
@@ -72,22 +75,6 @@ for classes in range (0,Nclasses):
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-```python
-
-
-
-```
 
 
 

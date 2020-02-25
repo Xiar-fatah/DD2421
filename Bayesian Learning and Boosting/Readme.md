@@ -74,8 +74,28 @@ for classes in range (0,Nclasses):
 
 ```
 
+3.
+> 3. We now have all functions we need for doing the training and
+classification. Use the provided function testClassifier to test the accuracy for the
+vowels and iris datasets. testClassifier runs a loop that does the following things:
+0. Uses the provided random partitioning function to split the dataset into a train-
+ing and test dataset.
+1. Trains your classifier on the training partition.
+2. Evaluate the performance of the classifier on the test partition.
+Run testClassifier for the datasets and take note of the accuracies. Use plotBoundary
+to plot the decision boundary of the 2D iris dataset.
+<p>
+    <img src="a3.png" width="400" />
+    <em>Boundary for iris dataset.</em>
 
+</p>
 
+> Answer the following questions:
+a) When can a feature independence assumption be reasonable and when not?
 
+Answer :
+> b) How does the decision boundary look for the Iris dataset? How could one improve
+the classification results for this scenario by changing classier or, alternatively,
+manipulating the data?
 
 

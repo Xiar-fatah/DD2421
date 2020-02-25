@@ -87,17 +87,24 @@ to plot the decision boundary of the 2D iris dataset.
 <p>
     <img src="a3.png" width="400" />
     <em>Boundary for iris dataset.</em>
-Trial: 10 Accuracy 95.6
-Trial: 20 Accuracy 93.3
-Trial: 30 Accuracy 86.7
-Trial: 40 Accuracy 88.9
-Trial: 50 Accuracy 91.1
-Trial: 60 Accuracy 86.7
-Trial: 70 Accuracy 91.1
-Trial: 80 Accuracy 86.7
-Trial: 90 Accuracy 91.1
 </p>
 
+# Vowels
+
+| Trial      | Accuracy      |
+| ------------- |:-------------:| 
+|0    | 61 | 
+|10     | 66,2|  
+|20 |   74  | 
+|  30   |66.9|  
+|    40 | 59.7|  
+|   50  |64.3 |  
+|   60  | 66.9|  
+|   70  |63.6 |  
+|   80  | 62.3|  
+|   90  | 70.8 |  
+Final mean classification accuracy  64.7 with standard deviation 4.03.
+# Iris
 | Trial      | Accuracy      |
 | ------------- |:-------------:| 
 |0    | 84.4  | 
@@ -116,9 +123,12 @@ Final mean classification accuracy  89 with standard deviation 4.16.
 > Answer the following questions:
 a) When can a feature independence assumption be reasonable and when not?
 
-Answer :
+Answer : The assumption is useful when the features, x_i, of the vector x are conditionally independent given classification. Note that the model can still performe well if the features are reasonably independent. However, it is not reasonable to apply this assumption when the dataset is not reasonably independent, highly independent.
+
 > b) How does the decision boundary look for the Iris dataset? How could one improve
 the classification results for this scenario by changing classifier or, alternatively,
 manipulating the data?
+
+Answer: It is clear that the boundary between class 1 and 2 is not successful from the iris boundary figure. The dataset implies strongly that a support vector machine could improve the results.
 
 

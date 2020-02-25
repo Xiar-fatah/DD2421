@@ -103,7 +103,9 @@ to plot the decision boundary of the 2D iris dataset.
 |   70  |63.6 |  
 |   80  | 62.3|  
 |   90  | 70.8 |  
+
 Final mean classification accuracy  64.7 with standard deviation 4.03.
+
 # Iris
 | Trial      | Accuracy      |
 | ------------- |:-------------:| 

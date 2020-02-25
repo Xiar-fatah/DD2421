@@ -130,9 +130,9 @@ Due to pruning there is a need for validation dataset that is not training nor t
 \section{Lecture 3}
 
 \subsection{Introduction}
-How does one determine the right model, f, from the data? The simple concept for classification is by calculating the misclassification rate in consideration to the data. Assume the following data is given $\mathcal{D} = {(\vec{x_1},y),....}$ is given. The misclassification rate is given by
+How does one determine the right model, f, from the data? The simple concept for classification is by calculating the misclassification rate in consideration to the data. Assume the following data is given $\mathcal{D} = {(\bm{x_1},y),....}$ is given. The misclassification rate is given by
 \begin{equation}
-err(f,\mathcal{D}) = \frac{1}{N}\sum Ind(f(\vec{x}) \neq y)
+err(f,\mathcal{D}) = \frac{1}{N}\sum Ind(f(\bm{x}) \neq y)
 \end{equation}
 
 \subsection{Curse of Dimensionality}
@@ -174,6 +174,7 @@ The measurement of error is mean square. It is a convex function. Therefore the 
 E_{in} (w) = ||Xw - Y ||^2 \implies \frac{\partial E_{in}}{\partial w} =  2X^T(Xw - Y) = 0 \implies w = (X^T X )^{-1}X^T Y
 \end{equation}
 whereas w is the coefficients, X the data, Y the label and $E_{in}$ the sum of squared errors.
+
 \subsection{RANdom SAmpling Consensus}
 Random sampling consensus or RANSAC is applied when the data set S contains outliers
 \begin{enumerate}
@@ -184,43 +185,282 @@ Random sampling consensus or RANSAC is applied when the data set S contains outl
     \item If the size of $S_i$ is less than T, select a new subset and repeat the above.
     \item After N trials the largest consensus set $S_i$ is selected, and the model is re-estimated using all the points in the subset $S_i$
 \end{enumerate}
-In essence RANSAC
+In essence RANSAC takes two random data points and fits a line. This is repeated until there is a good result of data points within the margin of the fitted line. RANSAC is applied when the dataset contains outliners.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width =9cm]{RANSAC.png}
+    \caption{Line fitting between two data points.}
+    \label{RANSAC}
+\end{figure}
+
 \subsection{Disadvantages with RANSAC}
-\subsection{Differences with Parametric and Non-parametric Methods}
+The threshold of the margin in the line is vulnerable.
 \begin{enumerate}
-    \item If the parametric form is close to the true form of f, the parametric approach will outperform the non-parametric
-    \item As a general rule, parametric methods will tend to outperform non-parametric when there is a small number of observations per predictor (i.e. in a high dimension).
-    \item Interpretability stand point: Linear regression preferred to KNN if the test MSEs are similar or slightly lower.
+\item  If it is to high every fit is ranked equally. 
+\item If it is to low it leads to an unstable fit.
 \end{enumerate}
+However, this issues are tackled within MLESAC that evaluates the quality of the consensus dataset by calculating its likelihood for better predictions.
+
+
 \subsection{k-NN Regression, A Non-parametric}
-The k-NN regression method is closely related to the k-NN classifier. Given a value for K and a prediction point $x_0$, k-NN regression first identiffies the K training observations that are closest to $x_0$ represented by $N_0$. It then estimates $f(x_0)$ usin the average of all the training responses in $N_0$. In other words
+The k-NN regression method is closely related to the k-NN classifier. Given a value for K and a prediction point $x_0$, k-NN regression first identiffies the K training observations that are closest to $x_0$ represented by $N_0$. It then estimates $f(x_0)$ using the average of all the training responses in $N_0$. In other words
 \begin{equation}
     \hat{f(x_0)} = \frac{1}{K} \sum_{x_i \in N_0} y_i.
 \end{equation}
 Note larger values of k provide a smoother and less variable fit (lower variance!)
+
 \subsection{Parametric or Non-parametric Methods?}
 \begin{enumerate}
     \item  If the parametric form is close to the true form of f, the parametric approach will outperform the non-parametric
     \item As a general rule, parametric methods will tend to outperform non-parametric when there is a small number of observations per predictor (i.e. in a high dimension).
     \item Interpretability stand point: Linear regression preferred to KNN if the test MSEs are similar or slightly lower.
 \end{enumerate}
+
 \subsection{Shrinkage Methods}
-A common way to fit models is by appling least square, however an alternative is it is possible to fit a model containing all p predictors using a technique that constrains or regularizes the coefficient estimates, or equivalently that shrinks the coefficient estimates towards zero.
+A common way to fit models is by applying least square, however an alternative is it is possible to fit a model containing all p predictors using a technique that constrains or regularizes the coefficient estimates, or equivalently that shrinks the coefficient estimates towards zero.
 \begin{enumerate}
     \item Among a large number of variables X in the model there are generally many that have little (or no) effect on Y
     \item Leaving these variables in the model makes it harder to see the big picture, i.e. the effect of the “important variables”
     \item Would be easier to interpret the model by removing unimportant variables (setting the coefficients to zero)
 \end{enumerate}
-\subsection{Ride Regression}
+
+\subsection{Ridge Regression}
 Similar to least squares but minimizes different quantity
+\begin{equation}
+RSS + \lambda \sum_i w_i^2
+\end{equation}
+Note that the second term is called shrinkage penalty.
 \begin{enumerate}
-    \item Shrinkage penalty
-    \item The parameter $\lambda$
-    \item Interpation of the graphs
-    
+    \item Shrinkage penalty is a small value when the coefficients $w_i$ are close to zero.
+    \item The parameter $\lambda$ controls the impact of the two terms. Hence the selection is critical.
+    \item For a higher value on $\lambda$ the variance decreases and bias increases.
+    \item Ridge regression is harder to interpret.
 \end{enumerate}
+
 \subsection{The Lasso}
-Similar to ridge regression but with slightly different term
+Similar to least squares but minimizes different quantity
+\begin{equation}
+RSS + \lambda \sum_i |w_i|
+\end{equation}
+
+\section{Lecture 5}
+
+\subsection{Axiomatic definition of probabilities}
+Given an sample space $\omega$ of all possible outcomes, and an event E, or set of outcomes from $\omega$ then
+\begin{enumerate}
+    \item $P(E) \geq 0$ for all $E \subseteq \omega$.
+    \item If $E = \omega$ then the probability of $\omega$ is one. In other words the probability that one event will occur is equal to one.
+    \item if the events are a ocuntable sequence of pairwise disjoint events then the probability of the union of each event is equal to the probability of the summation of every event.
+\end{enumerate}
+\subsection{Random (Stochastic) Variables}
+A random variable is neither random nor a variable, it is a function that does exactly what we need, $X: \Omega \to \mathbb{R}$.
+The probability distribution function, so called pdf, of a random variable maps the range to positive numbers, $Pr(x): X \to \mathbb{R}_{>0}$.
+\begin{enumerate}
+    \item The probability of a random variables describes how the probability density is distributed over the range of X,
+    \begin{equation}
+        P[0 \leq X \leq 1] = \int_{x = 0}^1 Pr(x) dx.
+    \end{equation}
+    \item X is distributed Pr(x) is written ore compactly as 
+    \begin{equation}
+        X \sim Pr(x).
+    \end{equation}
+\end{enumerate}
+An example is 
+\begin{enumerate}
+\item $\Omega$ - All possible graded exams of all students in class.
+\item $X: \Omega \to \mathbb{R}$ - Random variable mapping exam outcome to score.
+\item $X \sim Pr(x)$ - Gaussian distribution.
+\end{enumerate}
+
+
+\subsection{Types of Random Variables}
+\begin{enumerate}
+    \item Discrete random variable: Countable set
+    \item Continuous random variable: Uncountable set
+\end{enumerate}
+
+\subsection{Joint Probabilities}
+Consider two random variables X and Y. Observe multiple paired instances, some paired outcomes will occur frequently. This information is encoded in the joint probability density function $Pr(x,y)$.
+
+\subsection{Marginalization}
+The probability distribution function, PDF, of any single variable can be recovered from a joint distribution by summing for the discrete case and integrating for the continuous case.
+\begin{equation}
+    Pr(x) = \sum_y Pr(x,y), (Discrete)
+\end{equation}
+
+\subsection{Conditional Probabilities}
+The conditional probability of X given that Y takes a value y gives
+\begin{equation}
+    P(A|B) = \frac{P(A, B)}{P(B)}.
+\end{equation}
+If it turns out the events are independent then
+\begin{equation}
+    P(A|B) = \frac{P(A) P(B)}{P(B)}.
+\end{equation}
+Bayes's theorem gives us
+\begin{equation}
+    P(A | B) = P(A|B)P(B) = P(B|A)P(A) \implies P(A|B) = \frac{P(B|A) P(A) }{P(B)}.
+\end{equation}
+
+\subsection{Common Distributions}
+\begin{enumerate}
+    \item Bernoulli - is a discrete distribution that models binary trials.
+    \item Categorical - is a discrete distribution that determines the probability of observing one of k possible outcomes. Bernoulli distribution is a special case of categorical distribution.
+    \item Gaussian or Univariate normal distribution - is a continuous distribution.
+\end{enumerate}
+
+\subsection{Central Limit Theorem}
+The distribution of a linear combination of a large number of
+independent, identically distributed (iid) variables will tend to
+normal, regardless of the underlying distribution.
+
+\subsection{Expectation}
+Given a function, $f[*]$, that returns a value for each possible value $x^*$ of the variable $x$ and a probability $Pr(x = x^*)$ that each value of x occurs. The expected output of that fuction is calculated according to
+\begin{equation}
+    \mathbb{E}[X] = \mu_X = \int x Pr(x) dx.
+\end{equation}
+it is equal to the center of gravity of a distribution. However, for different choices of the function, $f[*]$, the interpretation is different. Hence the variance can be calculated as
+\begin{equation}
+    Var[X] = \sigma_X^2 = \mathbb{E}[X-\mathbb{E}[X])^2],
+\end{equation}
+and is interpreted as the spread of a distribution. The covariance is given by
+\begin{equation}
+    \sigma_{X,Y} = \mathbb{E}[X-\mathbb{E}[X]](Y-\mathbb{E}[Y])],
+\end{equation}
+it showcases how two variables vary together.
+\subsection{General Machine Learning Problem}
+if Y is discrete then it is classification, if it is continuous it is regression.
+\begin{enumerate}
+    \item Learning: We estimate Pr($\bm{x}$, y) from data.
+    \item Inference: We estimate $Pr(y | \bm{X} = \bm{x}$) from data.
+\end{enumerate}
+
+\subsection{Bayes's Rule}
+\begin{enumerate}
+    \item $Pr(\bm{x} | Y = y)$: Likelihood represents the probability density of observing data $\bm{x}$ given the hypothesis Y = y
+    \item $Pr(Y = y)$: Prior represents the knowledge about Y before any observation.
+    \item $Pr(y | \bm{X} = \bm{x})$: Posterior represents the probability density of hypothesis y given observation $\bm{X} = \bm{x}$.
+    \item $Pr(\bm{X} = \bm{x})$: Evidence describes how well the model fits the evidence.
+\end{enumerate}
+
+\subsection{Probabilistic Regression}
+Regression via conditional probability:
+\begin{enumerate}
+\item Find the joint distribution of $\bm{X}$ and Y: Pr($\bm{X}$,y)
+\item Compute the posterior of Y: $Pr(y| \bm{X} = x) = \frac{Pr(\bm{x},y)}{Pr(\bm{X} = x)}$
+\item Compute conditional expectation: $\mathbb{E}[Y |X = x]$.
+\end{enumerate}
+Explicit regression model:
+\begin{enumerate}
+\item Define a deterministic model $y = f(\bm{x}) + \epsilon$.
+\item Describe probability distribution of the error $\epsilon = y -  f(\bm{x}) $.
+\item Estimate the parameters in $f(\bm{x})$.
+\end{enumerate}
+
+\subsection{Selecting the most probable hypothesis}
+Maximum A Posteriori (MAP) is about choosing hypothesis from Y with highest probability given observed data x:
+\begin{equation}
+y_{MAP}(\bm{x}) = arg max_{y \in \mathcal{Y}}  Pr(\bm{X} = \bm{x} |Y = y)Pr(Y = y)
+\end{equation}
+Maximum Likelihood (ML) is If we do not know prior distribution, then choose hypothesis with highest likelihood of generating the observed data:
+\begin{equation}
+y_{MLE} = arg max_{y \in \mathcal{Y}} Pr(\bm{X} = \bm{x} |Y = y)
+\end{equation}
+
+\section{Lecture 6}
+
+\subsection{Introduction}
+Previous lecture Bayes' theorem was mentioned. However how does one go by to obtain the prior, likelihood and evidence from data?
+\subsection{Discriminative vs Generative Models}
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Discriminative modeling}  & \textbf{Generative modeling} \\ \hline
+This models $Pr(y|\vec{x},D)$ directly & This models $Pr(\vec{x}|y,D)$ \\ \hline
+Example: Logistic Regression & Naive Bayes\\ \hline
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}%
+
+\subsection{Parametric vs Non-parametric Inference}
+The posterior, $Pr(y|\vec{x}) = Pr(y|\vec{x},\theta)$, distribution in consideration data is characterized by parameters $\theta$.
+
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Parametric Inference}  & \textbf{Non-Parametric Inference} \\ \hline
+Estimate $\theta$ using data, D & Estimate $Pr(\theta| D)$ \\ \hline
+Computes $Pr(y|\vec{x},\theta)$ to make inference  & Compute $Pr(y | \vec{x},D)$ from $Pr(y | \vec{x},\theta, D) Pr(\theta, D)$\\ \hline
+{\color{blue}{Learning corresponds to estimating $\theta$} } & {\color{red}{The number of parameters can grow with data} } \\  \hline
+MAP \& ML estimation& Bayesian methods \\  \hline
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}%
+
+\subsection{Maximum Likelihood (ML) Estimate}
+The ML estimation allows for approximation of posterior, $Pr(y|\vec{x},\theta)$, and likelihood, $Pr(\vec{x}|y,\theta)$, by finding the parameter values that make the data most likely. The $\theta_ML$ is obtained through ML optimally which is defined as maximizing the likelihood of the data, D 
+\begin{equation}
+\theta_{ML} = arg max_\theta P(D | \theta) = arg max_\theta \log P(D | \theta).
+\end{equation}
+We can then approximate distributions given the data: $Pr(y|\vec{x},\theta) \approx Pr(y|\vec{x},\theta_{ML})$ and $Pr(\vec{x}|y,\theta)\approx Pr(\vec{x}|y,\theta_{ML})$. However note that a first source of confusion is ML parameter estimation is not ML regression/classification. The second one is Maximum a Posteriori (MAP) and Maximum Likelihood (ML) classification are different 
+\begin{equation}
+y_{MAP} = arg max_y Pr(y|\vec{x},\theta_{ML}),
+\end{equation}
+\begin{equation}
+y_{ML} = arg max_y Pr(\vec{x}|y,\theta_{ML}),
+\end{equation}
+even with parameters $\theta$ estimated with the ML optimality criterion 
+\begin{equation}
+y_{ML} = arg max_\theta Pr(D|y,\theta) = arg max_\theta \prod_n P(x_n|y_n).s
+\end{equation}
+
+\subsection{Curse of Dimensionality}
+\begin{enumerate}
+\item Volume of feature space exponential in number of features
+\item More features implies potential for better description of the objects but need more and more data to model Pr(x,y) well
+\end{enumerate}
+However, for Naive Bayes classifier
+\begin{enumerate}
+\item All features (dimensions) regarded as conditionally independent.
+\item Instead of modelling one D-dimensional distribution, model D one-dimensional distributions.
+\end{enumerate}
+
+\subsection{Naive Bayes Classifier}
+$\bm{x}$ is a vector $(x_1, . . . , x_D)$ of attribute or feature values and Let $\mathcal{Y}$ = {1,2,...,K} be the set of possible classes. The MAP classification becomes
+\begin{equation}
+y_{MAP} = arg max_{y \in \mathcal{Y} } Pr(y | (x_1, . . . , x_D) ) = arg max_{y \in \mathcal{Y} } \frac{Pr((x_1, . . . , x_D) | y ) Pr( y )   }{Pr((x_1, . . . , x_D) ) } \end{equation},
+
+\begin{equation}
+arg max_{y \in \mathcal{Y} } \frac{Pr((x_1, . . . , x_D) | y ) Pr( y )   }{Pr((x_1, . . . , x_D) ) } =   arg max_{y \in \mathcal{Y} } Pr((x_1, . . . , x_D) | y ) Pr( y ).
+\end{equation}
+The Naive Bayes assumption is 
+\begin{equation}
+Pr((x_1, . . . , x_D) | y )  = \prod_d Pr(x_d | y).
+\end{equation}
+The MAP classification with Naive Bayes becomes
+\begin{equation}
+y_{MAP} = arg max_{y \in \mathcal{Y} } Pr(y )  \prod_d Pr(x_d | y).
+\end{equation}
+When to use Naive Bayes
+
+\begin{enumerate}
+\item Moderate or large training set available
+\item Feature dimensions are conditionally independent given class (or at least reasonably independent, still works with a little dependence)
+\end{enumerate}
+One issue with Naive Bayes is what if none of the training instances with target value y have attribute $x_i$? Then $Pr(x_i|y ) = 0 \implies Pr(y )\prod_d Pr(x_d | y) = 0 $. A simple solution to this is to add pseudocounts to all counts so that no count is zero. This is a form of regularization or smoothing.
+
+
+
+
+
+
+
+
+
 
 
 

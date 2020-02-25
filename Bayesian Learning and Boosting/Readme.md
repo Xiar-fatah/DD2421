@@ -75,27 +75,50 @@ for classes in range (0,Nclasses):
 ```
 
 3.
-> 3. We now have all functions we need for doing the training and
+> We now have all functions we need for doing the training and
 classification. Use the provided function testClassifier to test the accuracy for the
 vowels and iris datasets. testClassifier runs a loop that does the following things:
-0. Uses the provided random partitioning function to split the dataset into a train-
+> * Uses the provided random partitioning function to split the dataset into a train-
 ing and test dataset.
-1. Trains your classifier on the training partition.
-2. Evaluate the performance of the classifier on the test partition.
+> * Trains your classifier on the training partition.
+> * Evaluate the performance of the classifier on the test partition.
 Run testClassifier for the datasets and take note of the accuracies. Use plotBoundary
 to plot the decision boundary of the 2D iris dataset.
 <p>
     <img src="a3.png" width="400" />
     <em>Boundary for iris dataset.</em>
-
+Trial: 10 Accuracy 95.6
+Trial: 20 Accuracy 93.3
+Trial: 30 Accuracy 86.7
+Trial: 40 Accuracy 88.9
+Trial: 50 Accuracy 91.1
+Trial: 60 Accuracy 86.7
+Trial: 70 Accuracy 91.1
+Trial: 80 Accuracy 86.7
+Trial: 90 Accuracy 91.1
 </p>
+
+| Trial      | Accuracy      |
+| ------------- |:-------------:| 
+|0    | 84.4  | 
+|10     | 95.6|  
+|20 |   93.3  | 
+|  30   |86.7 |  
+|    40 | 88.9|  
+|   50  |91.1 |  
+|   60  | 86.7|  
+|   70  | 91.1 |  
+|   80  | 86.7|  
+|   90  | 91.1 |  
+
+Final mean classification accuracy  89 with standard deviation 4.16.
 
 > Answer the following questions:
 a) When can a feature independence assumption be reasonable and when not?
 
 Answer :
 > b) How does the decision boundary look for the Iris dataset? How could one improve
-the classification results for this scenario by changing classier or, alternatively,
+the classification results for this scenario by changing classifier or, alternatively,
 manipulating the data?
 
 

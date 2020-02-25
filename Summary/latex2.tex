@@ -453,12 +453,70 @@ When to use Naive Bayes
 \end{enumerate}
 One issue with Naive Bayes is what if none of the training instances with target value y have attribute $x_i$? Then $Pr(x_i|y ) = 0 \implies Pr(y )\prod_d Pr(x_d | y) = 0 $. A simple solution to this is to add pseudocounts to all counts so that no count is zero. This is a form of regularization or smoothing.
 
+\section{Lecture 7}
+\subsection{Maximum a Posteriori Estimation}
+In the previous lecture it was mentioned that ML estimation chooses $\theta$ to maximize probability of the data, D. However, MAP estimation chooses the most likely $\theta$ given the data, D.
+\begin{equation}
+arg max_\theta (log Pr(\theta)+\sum log Pr(x_n |\theta). 
+\end{equation}
+whereas the term $log Pr(\theta)$ works as a regularizer. See the example on the presentation for more in depth application of MAP!
+\subsection{Limitation of Linear Regression}
+\begin{enumerate}
+\item With MAP estimation, the problem shifts to defining the parameters of the prior $Pr(\vec{w}$)
+\item We still have uncertainty in the posterior $Pr(y|\vec{x},\vec{w}^*)$ but this is not explicit.
+\item We don’t want $Pr(y|\vec{x},\vec{w})$, but instead $P r(y|\vec{x},D)$
+\end{enumerate}
 
+\subsection{Bayesian estimation}
+\begin{enumerate}
+\item ML: $D \to \theta_{ML} \to Pr(y | \vec{x}, \theta_{ML})$
+\item MAP: $D, Pr(\theta) \to \theta_{MAP} \to Pr(y | \vec{x}, \theta_{MAP})$
+\item Bayes: $D, Pr(\theta)  \to Pr(\theta | D) \to Pr(y | \vec{x},D)$
 
+\end{enumerate}
+Consider $\theta$ as a random variable (same as MAP). Now characterize $\theta$ with the posterior distribution $Pr(\theta | D)$ given the data and compute the new predicting posterior $Pr(y|\vec{x}, D)$ marginalizing $\theta$  (predictive posterior)
 
+\begin{equation}
+Pr(y|\vec{x}, D) = \int_{\theta \in \Theta} Pr(y|\vec{x}, \theta) Pr(\theta | D) d\theta
+\end{equation}
 
+\subsection{Bayesian Linear Regression}
+If the data, D, is given the model is the same as MAP. Estimating $Pr(y | \vec{x}, D)$ is through
+\begin{equation}
+Pr(y | \vec{x}, D) = \int_{\mathcal{R}^D} Pr(y | \vec{x},D, \vec{w})Pr(\vec{w}|\vec{x},D) d\vec{w} = \int_{\mathcal{R}^D} Pr(y | \vec{x}, \vec{w})Pr(\vec{w}| D) d\vec{w}
+\end{equation}
+Note that if $Pr(\vec{w})$ is Gaussian then $Pr(\vec{w | D})$ is Gaussian. Since $Pr(y|\vec{x},D )$ is also Gaussian. The result is in closed-form. Read more about closed form solutions in the presentation.
 
+\subsection{Occam's Razor}
+Choose the simplest explanation for the observed data. Importent factors are
+\begin{enumerate}
+\item number of model parameters
+\item number of data points 
+\item model fit to the data
+\end{enumerate}
 
+More complex models fit the data very well (large $Pr(D|\theta)$ and $Pr(\theta|D))$ but only for small regions of the parameter space $\Theta$.
+
+\subsection{Limitations of Bayesian Non-parametric Methods}
+\begin{enumerate}
+\item closed form solution for $Pr(\vec{w}|D)$ is not always possible (conjugate priors)
+\item can use approximations with high computational cost (sampling methods) or complex solutions (variational methods)
+\item sometimes we will have a non-informative prior of $\vec{W}$, but Bayesian methods carry uncertainty estimates
+\end{enumerate}
+
+\subsection{Expectation Maximization}
+Fitting model parameters with missing (latent) variables
+\begin{equation}
+Pr(\vec{x} | \theta )  = \sum_k \pi_k Pr()
+\end{equation}
+\begin{enumerate}
+\item Very general idea (applies to many different probabilistic
+models)
+\item Augment data with latent variables: hi ∈ (1, . . . , K ) is the
+assignment of data point xi to a component of the mixture
+\item Optimize likelihood of the complete data over N data points
+\end{enumerate}
+\subsection{EM properties}
 
 
 

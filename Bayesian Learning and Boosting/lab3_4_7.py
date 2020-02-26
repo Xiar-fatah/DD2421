@@ -54,7 +54,9 @@ def computePrior(labels, W=None):
         # Or more compactly extract the indices for which y==class is true,
         # analogous to MATLAB’s find
         idx = np.where(labels==classes)[0]
-        prior[jdx] = len(idx)/len(labels)
+        # Extract the vector from W in consideration to the the class
+        # and divide in by the total length of W and sum it 
+        prior[jdx] = np.sum(W[idx]/len(W))
     # ==========================
     return prior
 
@@ -169,11 +171,11 @@ plotGaussian(X,labels,mu,sigma)
 
 
 
-testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
+#testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
 
 
 
-plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
+#plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
 
 
 # ## Boosting functions to implement
@@ -187,7 +189,7 @@ plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
 #                   T - number of boosting iterations
 # out:    classifiers - (maximum) length T Python list of trained classifiers
 #              alphas - (maximum) length T Python list of vote weights
-def trainBoost(base_classifier, X, labels, T=10):
+def trainBoost(base_classifier, X, labels, T):
     # these will come in handy later on
     Npts,Ndims = np.shape(X)
 
@@ -196,16 +198,39 @@ def trainBoost(base_classifier, X, labels, T=10):
 
     # The weights for the first iteration
     wCur = np.ones((Npts,1))/float(Npts)
-
+    
     for i_iter in range(0, T):
         # a new classifier can be trained like this, given the current weights
         classifiers.append(base_classifier.trainClassifier(X, labels, wCur))
 
         # do classification for each point
         vote = classifiers[-1].classify(X)
-
+        # 2.
+        # Get the unique examples e.g [0,1,2]
+        classes = np.unique(labels)
+        # Note True == 1
+        eps = 0
+        for label in classes:
+            idx = np.where(vote == label)[0]
+            eps += np.sum(np.transpose(wCur[idx])*(1-(label == labels[idx])))
+        # 3.
+        alpha = 0.5 * (np.log(1-eps)-np.log(eps))
+        alphas.append(alpha)
+        
+        # 4. 
+        for i in range(0,len(wCur)):
+            if (vote[i] == labels[i]) == 1:
+                wCur[i] = wCur[i] * pow(np.e,-alpha)       
+            else:
+                wCur[i] = wCur[i] * pow(np.e,alpha)
+        wCur = np.divide(wCur, sum(wCur))
+        
         # TODO: Fill in the rest, construct the alphas etc.
         # ==========================
+        # Begin by calculating weighted error, epsilon for every iteration
+        # Note that t denotes the iteration of the algorithm, hence for every t
+        
+            
         
         # alphas.append(alpha) # you will need to append the new alpha
         # ==========================
@@ -230,7 +255,10 @@ def classifyBoost(X, classifiers, alphas, Nclasses):
         # TODO: implement classificiation when we have trained several classifiers!
         # here we can do it by filling in the votes vector with weighted votes
         # ==========================
-        
+        for label in range(Ncomps):
+            classify = classifiers[label].classify(X)
+            for j in range(Npts):
+                votes[j][classify[j]    ] += alphas[label]
         # ==========================
 
         # one way to compute yPred after accumulating the votes
@@ -263,7 +291,7 @@ class BoostClassifier(object):
 # Call the `testClassifier` and `plotBoundary` functions for this part.
 
 
-#testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='iris',split=0.7)
+testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='iris',split=0.7)
 
 
 

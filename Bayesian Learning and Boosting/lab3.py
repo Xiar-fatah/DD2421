@@ -94,7 +94,7 @@ def mlParams(X, labels, W=None):
         Assuming the first column is the x-values and the second column is the
         y-values.
         """
-        for i in range(2): 
+        for i in range(Ndims): 
             temp = []
             for rows in range(0,xlc.shape[0]):
                 temp.append(pow(xlc[rows][i]-mu[jdx][i],2))
@@ -112,10 +112,21 @@ def classifyBayes(X, prior, mu, sigma):
     Npts = X.shape[0]
     Nclasses,Ndims = np.shape(mu)
     logProb = np.zeros((Nclasses, Npts))
-    print(logProb)
     # TODO: fill in the code to compute the log posterior logProb!
     # ==========================
-    
+    # For each class 
+    for classes in range (0,Nclasses):
+        # np.log is ln, whereas np.log10 is your standard base 10 log. - Stack Overflow
+        ln_sigma = -0.5 * np.log(np.linalg.det(sigma[classes]))
+        ln_class_prior = np.log(prior[classes])
+        sub_mean = X - mu[classes] 
+        # For each data point logProb = np.zeros((Nclasses, Npts))
+        for data_points in range(0,Npts):
+            # In reference to logProb = np.zeros((Nclasses, Npts))
+            # Note that sigma only has values on the diagonal
+            logProb[classes][data_points] = ln_sigma - 0.5 * np.inner(sub_mean[data_points]/np.diag(sigma[classes]), sub_mean[data_points]) + ln_class_prior
+            
+        
     # ==========================
     
     # one possible way of finding max a-posteriori once
@@ -162,11 +173,11 @@ plotGaussian(X,labels,mu,sigma)
 
 
 
-#testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
+testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
 
 
 
-#plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
+plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
 
 
 # ## Boosting functions to implement

@@ -61,6 +61,7 @@ def computePrior(labels, W=None):
 # NOTE: you do not need to handle the W argument for this part!
 # in:      X - N x d matrix of N data points
 #     labels - N vector of class labels
+#          W - N x 1 vector with weights
 # out:    mu - C x d matrix of class means (mu[i] - class i mean)
 #      sigma - C x d x d matrix of class covariances (sigma[i] - class i sigma)
 def mlParams(X, labels, W=None):
@@ -76,20 +77,15 @@ def mlParams(X, labels, W=None):
 #    print(X)
     # TODO: fill in the code to compute mu and sigma!
     # ==========================    
-    # Iterate over both index and value
+    # Iterate over both index and value, jdx is the number of classes
     for jdx, classes in enumerate(classes):
-        idx = labels == classes # Returns a true or false with the length of y
-        # Or more compactly extract the indices for which y==class is true,
-        # analogous to MATLAB’s find
+        idx = labels == classes 
         idx = np.where(labels == classes)[0]
-
-        xlc = X[idx,:] # Get the x for the class labels. Vectors are rows.
-        """
-        xlc contains the vectors for each indivual class which is looped through
-        hence the mean vector is obtain through sum_i xlc_i/N for each class. axis = 0
-        takes the mean of each column.
-        """
-        mu[jdx] += np.mean(xlc, axis = 0) 
+        # xlc contains the vectors for each indivual class which is looped through
+        xlc = X[idx,:] # Get the x for the class labels. Vectors are rows. N X d vector
+        wlc = W[idx,:] # Get the w for the class labels. N X 1 vector
+        mu[jdx] += np.sum(xlc * wlc, axis=0) / np.sum(wlc) # Axis = 0 so the result is a row vector
+#        mu[jdx] += /np.sum(W)
         """
         Assuming the first column is the x-values and the second column is the
         y-values.
@@ -173,11 +169,11 @@ plotGaussian(X,labels,mu,sigma)
 
 
 
-testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
+#testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
 
 
 
-plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
+#plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
 
 
 # ## Boosting functions to implement

@@ -133,4 +133,47 @@ manipulating the data?
 
 Answer: It is clear that the boundary between class 1 and 2 is not successful from the iris boundary figure. The dataset implies strongly that a support vector machine could improve the results.
 
+4.
+
+> Extend the old mlParams function to mlParams(X, labels, W) that handles weighted instances. Again X is N x d matrix of feature vectors, labels a length N vector containing the corresponding labels and W is a N x 1 matrix of weights.
+
+Answer: The code has now been changed to
+
+```python
+for jdx, classes in enumerate(classes):
+    idx = labels == classes 
+    idx = np.where(labels == classes)[0]
+    # xlc contains the vectors for each indivual class which is looped through
+    xlc = X[idx,:] # Get the x for the class labels. Vectors are rows. N X d vector
+    wlc = W[idx,:] # Get the w for the class labels. N X 1 vector
+    mu[jdx] += np.sum(xlc * wlc, axis=0) / np.sum(wlc) # Axis = 0 so the result is a row vector
+    """
+    Assuming the first column is the x-values and the second column is the
+    y-values.
+    """
+    for i in range(Ndims): 
+        inv_wlc_sum = np.sum(wlc)
+        temp = []
+        for rows in range(0,xlc.shape[0]):
+            # Added 1/(inv_wlc_sum) and wlc[rows]
+            temp.append(1/(inv_wlc_sum) * wlc[rows] * pow(xlc[rows][i]-mu[jdx][i],2))
+        sigma[jdx][i][i] = np.sum(temp)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

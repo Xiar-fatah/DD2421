@@ -85,16 +85,16 @@ def mlParams(X, labels, W=None):
         xlc = X[idx,:] # Get the x for the class labels. Vectors are rows. N X d vector
         wlc = W[idx,:] # Get the w for the class labels. N X 1 vector
         mu[jdx] += np.sum(xlc * wlc, axis=0) / np.sum(wlc) # Axis = 0 so the result is a row vector
-#        mu[jdx] += /np.sum(W)
         """
         Assuming the first column is the x-values and the second column is the
         y-values.
         """
         for i in range(Ndims): 
+            inv_wlc_sum = np.sum(wlc)
             temp = []
             for rows in range(0,xlc.shape[0]):
-                temp.append(pow(xlc[rows][i]-mu[jdx][i],2))
-            sigma[jdx][i][i] = np.mean(temp)
+                temp.append(1/(inv_wlc_sum) * wlc[rows] * pow(xlc[rows][i]-mu[jdx][i],2))
+            sigma[jdx][i][i] = np.sum(temp)
     # ==========================
     return mu, sigma
 
@@ -169,11 +169,11 @@ plotGaussian(X,labels,mu,sigma)
 
 
 
-#testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
+testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
 
 
 
-#plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
+plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
 
 
 # ## Boosting functions to implement

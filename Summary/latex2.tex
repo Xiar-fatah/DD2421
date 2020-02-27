@@ -519,6 +519,87 @@ assignment of data point xi to a component of the mixture
 \subsection{EM properties}
 
 
+\subsection{Lecture 10}
+
+\subsection{Introduction}
+
+Ensemble learning is when you train weak classifiers or regressors and how to combine them to make them more powerful.
+
+\subsection{The Wisdom of Crowds}
+A crowd is wiser than any indiviual. The collective knowledge of a diverse and independent body of of people typically exceeds the knowledge of any single indiviual and can be harnessed by voting. There are four elements that are required to make a crowd wise
+\begin{enumerate}
+\item
+Diversity of opinion: People in a crowd should have a range of experience, education and opinions.
+\item
+Independence: prediction by a persion in a crowd is not influence by other people in a crowd.
+\item 
+Decentralization: people have specalizationand local knowledge.
+\item
+Aggregation: There is a mechanism for aggregating all predictions into one single prediction.
+\end{enumerate}
+\subsection{Combining Classifiers}
+The wisdom of crowd ideas will be exploited for specific tasks by 
+\begin{enumerate}
+\item
+Combining classifiers predictions.
+\item
+Aim to combine independent and diverse classifiers
+
+\end{enumerate}
+
+However, labelled training data will be used to
+\begin{enumerate}
+\item
+Identify the expert classifiers in the pool.
+\item
+Identify complementary classifiers.
+\item
+Indicate how to best combine them.
+\end{enumerate}
+\subsection{Ensemble Method: Baggning}
+Baggning stands for Bootstrap Aggregating and is applied by using bootstrap replicates of training set by sampling with replacement. One each replicate learn one model - combined altogether. E.g decision tree 
+\begin{enumerate}
+\item
+High variance classifiers produce differing decision boundaries which are highly dependent on training data.
+\item Low bias classifiers produce decision boundaries which on average are good approximations to the true decision boundary.
+\item Ensemble predictions using diverse high-variance, low-bias classifiers reduce the variance of the ensemble classifier. 
+\end{enumerate}
+The baggning method is in essence: given training data as input it is iterated to create a new set of training data $S_{b}$ and used to estimate the regression or classification function $f_{b}$. The output for classification is then decided by
+\begin{equation}
+f_{bag}(\bm{b}) argmax_{1\leq k \leq K} \sum_{b=1}^{B} ind(f_{b}(\bm{x})= k),
+\end{equation}
+and regression by
+\begin{equation}
+f_{bag}(\bm{x}) = \frac{1}{b} \sum_{b=1}^{B} f_{b}(\bm{x}).
+\end{equation}
+Conclusion is bagging is a procedure to reduce the variance of our classifier (when labelled training data is limited). Thus implies it is a powerful algorithm for controlling overfitting. Note it only produces good results for high variance, low bias classifiers.
+
+\subsection{Ensemble Method: Forest}
+Equal to bagging but in addition has a random feature selection at each node. It is suited for multi-class problems.
+
+\subsection{Ensemble Method: Forest}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

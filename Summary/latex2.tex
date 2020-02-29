@@ -85,7 +85,8 @@
 \newpage
 \epigraph{If you can’t explain something in simple terms, you don’t understand it.}{\textit{Richard Feynman }}
 \newpage
-
+\section{Lecture 1}
+The first lection contained mostly information about the class.
 \section{Lecture 2}
 \subsection{Decision Tree}
 A decision tree is a map of the possible outcomes of a series of related choices.
@@ -606,7 +607,10 @@ There will be data that are none-Separable. In many cases, especially when the d
 \end{equation}
 with the constraint $ 0 \leq \alpha_i \leq C, \forall i$.
 
-\subsection{Lecture 10}
+
+\section{Lecture 9}
+Unsure what to summarize, check the lecture slides instead.
+\section{Lecture 10}
 
 \subsection{Introduction}
 
@@ -694,6 +698,25 @@ Note that $epsilon_{t}$ must be less than 0.5 and break out of the loop if it is
 \item Update the weights using $w_{j}^{t+1} =w_{j}^{t} \exp (-\alpha_{t} y_{j} h_{t} (\bm{x}_{j}) ) $
 \item Normalize the weights so that they sum to 1.
 \end{enumerate}
+
+\section{Lecture 11}
+\subsection{Implementation of Principal Component Analysis}
+\begin{enumerate}
+    \item Calculate the covariance matrix of the data.
+    \item Calculate the eigenvalues and eigenvectors of the covariance matrix.
+    \item Sort the eigenvalues and eigenvectors in decreasing order.
+    \item The highest value on the eigenvalue has the eigenvector as PC1. Hence project the data points on that eigenvector. This continues for the following eigenvalues and PCs axes.
+\end{enumerate}
+Note that PC1 axes measures where the data varies the most. 
+\subsection{Maximum variance criterion}
+The lecture slide tells us that the mean of the data is given by
+\begin{equation}
+    \bm{E} = \frac{1}{n} \sum \bm{x} = \bm{\mu},
+\end{equation}
+and the covariance matrix
+\begin{equation}
+    \sum =  E((x-E(x))(x-E(x))^T)
+\end{equation}
 
 
 

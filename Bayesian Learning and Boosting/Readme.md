@@ -160,16 +160,57 @@ for jdx, classes in enumerate(classes):
         sigma[jdx][i][i] = np.sum(temp)
 ```
 
+5.
 
+> Compute the classification accuracy of the boosted classifier on some data sets using testClassifier from labfuns.py and compare it with those of the basic classifier on the vowels and iris data sets.
 
+Answer: 
+# Iris
+| Trial      | Accuracy      |
+| ------------- |:-------------:| 
+|0    | 100 | 
+|10     | 93.3|  
+|20 |   91.1 | 
+|  30   |97.8 |  
+|    40 | 93.3|  
+|   50  |93.3 |  
+|   60  | 97.8|  
+|   70  | 91.1 |  
+|   80  | 95.6|  
+|   90  | 93.3 |  
 
+Final mean classification accuracy  94.1 with standard deviation 6.72.
 
+# Vowels
+| Trial      | Accuracy      |
+| ------------- |:-------------:| 
+|0    | 76.6 | 
+|10     | 86.4|  
+|20 |   83.1 | 
+|  30   |80.5 |  
+|    40 | 72.7|  
+|   50  |76 |  
+|   60  | 81.8|  
+|   70  | 82.5 |  
+|   80  | 79.9|  
+|   90  | 83.1 |  
 
+Final mean classification accuracy  80.2 with standard deviation 3.52.
 
+5a)
 
+> Is there any improvement in classication accuracy? Why/why not?
 
+5b)
 
+> Plot the decision boundary of the boosted classier on iris and compare it with
+that of the basic. What dierences do you notice? Is the boundary of the boosted
+version more complex?
 
+5c)
+
+> Can we make up for not using a more advanced model in the basic classier
+(e.g. independent features) by using boosting?
 
 
 

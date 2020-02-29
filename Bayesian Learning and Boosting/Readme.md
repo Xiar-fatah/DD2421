@@ -199,18 +199,63 @@ Final mean classification accuracy  80.2 with standard deviation 3.52.
 
 5a)
 
-> Is there any improvement in classication accuracy? Why/why not?
+> Is there any improvement in classification accuracy? Why/why not?
+
+Answer: The classification accuracy for the ensemble method compared to the basic classifier perform better. This is due to a collection of high-bias classifiers combined in the form of boosting can create one classifier with low bias.
 
 5b)
 
-> Plot the decision boundary of the boosted classier on iris and compare it with
-that of the basic. What dierences do you notice? Is the boundary of the boosted
-version more complex?
+> Plot the decision boundary of the boosted classifier on iris and compare it with that of the basic. What differences do you notice? Is the boundary of the boosted version more complex?
+
+Answer: The result on the plot is better adapted to the data. Now there is a boundary splits the dataset of class 1 and 2. The complexity of the boundary has inscreased in comparision to the basic classifier.
+
+<p>
+    <img src="betterclas.PNG" width="400" />
+    <em>Plot for the improved iris classifier. </em>
+
+</p>
 
 5c)
 
-> Can we make up for not using a more advanced model in the basic classier
-(e.g. independent features) by using boosting?
+> Can we make up for not using a more advanced model in the basic classifier (e.g. independent features) by using boosting?
+
+Answer: Yes this is due to boosting results in a low-bias classifier, the reason to use a more complex model is to attempt to reach a low-bias classifier.
+
+6.
+
+>  We have implemented a class DecisionTreeClassifier based upon skLearns decision tree classier. The skLearn implementation is similar to the one used in the first lab, however, here the values are continuous and we use the default Gini index to compute the split. Test the decision tree classier on the vowels and iris data sets. Repeat but now by passing it as an argument to the BoostClassifier object. Answer questions 1-3 in assignment 5 for the decision tree.
+
+6a)
+
+> Is there any improvement in classification accuracy? Why/why not?
+
+Answer: 
+
+6b)
+
+> Plot the decision boundary of the boosted classifier on iris and compare it with that of the basic. What differences do you notice? Is the boundary of the boosted version more complex?
+
+Answer: 
+
+6c)
+
+> Can we make up for not using a more advanced model in the basic classifier (e.g. independent features) by using boosting?
+
+Answer: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

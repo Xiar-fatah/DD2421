@@ -518,6 +518,93 @@ assignment of data point xi to a component of the mixture
 \end{enumerate}
 \subsection{EM properties}
 
+\subsection{Lecture 8}
+\section{Training a Linear Separator}
+What does learning mean here? It means finding the best weights $w_i$. For the application of this it exists two optimal algorithms which are perceptron learning and delta rule.
+
+\subsection{Percepton Learning}
+Perceptron learning is an algorithm for spervised learning of binary classifiers. Thus it is only a function which can decide whether or not an input belongs to some specific class. Percepton learning involves the following
+\begin{enumerate}
+    \item Incremental learning.
+    \item Weights only change when the output is wrong.
+    \item Update rule $w_i + \eta (t-o)x_i \to w_i$.
+    \item Always converges if the problem is solvable.
+\end{enumerate}
+\subsection{Delta rule}
+Delta rule is a gradient descent learning rule for updating the weights of the input, the input is continuous. The delta rule invovles
+\begin{enumerate}
+    \item Incremental learning.
+    \item Weights always change.
+    \item $w_i + \eta (t-\bm{w}^T \bm{X})x_i$.
+    \item Converges only in the mean.
+    \item The algorithm will find an optimal solution even if the problem can not be fully solved.
+\end{enumerate}
+\subsection{Linear Separation}
+Linear separation has many acceptable solutions, however it generalizes poorly. Thus it works well for all training data but creates structural risk. Hence the future data samples might get mis-classified. 
+\subsection{Structural Risk Minimization}
+To minimize structural risk hyperplanes with margins are introduced. The training data points will at least be a distance d from the plane. This results in less arbitrariness and therefore better generalization.
+\begin{enumerate}
+    \item Wide margins restrict the possible hyperplanes to choose from.
+    \item Less risk to choose a bad  hyperplane by accident.
+    \item Reduced risk for bad generalization.
+\end{enumerate}
+Minimization of the structural risk $\equiv$ maximation of the margin. Hence out of all hyperplanes which solve the problem, the one with the widest margin will probably generalize best. The mathematical formulation begins with introducing the hyperplane
+\begin{equation}
+    \bm{w}^T\bm{x} = 0
+\end{equation}
+The hyperplane with a margin is represented as when it is a positive target ($t = 1$)
+\begin{equation}
+    \bm{w}^T\bm{x} \geq 1
+\end{equation}
+when the target is negative ($t = -1$)
+\begin{equation}
+    \bm{w}^T\bm{x} \leq -1
+\end{equation}
+It would be convenient if these two equation of the positive and negative target could be written as one equation. Which is possible
+\begin{equation}
+    t \bm{w}^T\bm{x} \geq 1.
+\end{equation}
+The qusetion arises, how wide is the margin? By selecting two points $\bm{p}$ and $\bm{q}$ on the two margins, the length between them can be expressed as 
+\begin{equation}
+    2d = \frac{\bm{w}^T}||{\bm{w}||} (\bm{p}-\bm{q}).
+\end{equation}
+This equation can be simplified
+\begin{equation}
+    \frac{\bm{w}^T(\bm{p}-\bm{q})}{||\bm{w}||} = \frac{1}{||\bm{w}||} = \frac{2}{||\bm{w}||}.
+\end{equation}
+The maximal margin corresponds to minimal length of the weight vector. In essence the support vector machine tries to do is structural risk minimization in reference too $\bm{w}^T\bm{w}$ with the constraints $t_i \bm{w}^T \bm{x}_i \geq 1, \forall 1$.
+\subsection{Support Vector Machine}
+Note almost everything becomes linearly separable when represented in high-dimensional spaces and ordinary low-dimensional data can be scattered into a high-dimensional space. However, two problems emerge. If there are too many parameters the result will generalize poorly and the computation is extensive. What support vector machine tries to do is transform the input to a suitable high-dimensional space and then choose the unique separating hyperplane that has maximal margins. The advantages of support vector machine are
+\begin{enumerate}
+    \item The generalization of support vector machine is optimal.
+    \item Performs well with few training samples.
+    \item Support vector machine classifies quick.
+\end{enumerate}
+The disadvantages of support vector machine are
+\begin{enumerate}
+    \item Non-local weight calculation.
+    \item Hard to implement efficiently
+\end{enumerate}
+\subsection{Kernels}
+Kernels allows for utilizing the advantages of a high-dimensional space without actually representing anything high-dimensional. The condition is the only operation done in the high-dimensional space is to compute scalar products between pairs of items. The trick is the high-dimensional scalar product is computed using the original (low-dimensional) representation. Now the minimization becomes $\frac{1}{2} \bm{w}^T \bm{w}$ with the constraints $t_i \bm{w}^T \phi (\bm{x_i}) \geq 1, \forall i$. This minimization can be done by Lagrange Multiplier Method 
+\begin{equation}\label{L}
+    L = \frac{1}{2} \bm{w}^T\bm{w} - \sum_i \alpha_i (t_i \bm{w}^T \phi (\bm{x}_i)-1)
+\end{equation}
+The task is now to minimize $\bm{w}$ and maximize $\alpha_i \geq 0$.
+\begin{equation}
+    \frac{\partial L}{\partial \bm{w}} = 0 \implies \bm{w} - \sum_i \alpha_i t_i \phi(\bm{x}_i) = 0 \implies \bm{w} = \sum_i \alpha_i t_i \phi (\bm{x}_i).
+\end{equation}
+Now eliminate $\bm{w}$ in equation \ref{L} and the result is the dual formulation problem
+\begin{equation}\label{LPOWER}
+    L = \sum_i \alpha_i - \frac{1}{2} \sum_i \alpha_i \alpha_j t_i t_j \phi (\bm{x}_i)^T \phi (\bm{x}_j)
+\end{equation}
+Now the actual task is to maximize the equation \label{LPOWER} under the constraint $\alpha_i \geq 0, \forall i$ 
+\subsection{Slack}
+There will be data that are none-Separable. In many cases, especially when the data contain some sort of noise, it is desirable to allow a few data points to be miss-classified if it results in a substantially wider margin. Thus slack is introduce, the reformulation becomes to minimize $\frac{1}{2} \bm{w}^T \bm{w} + c \sum_i \epsilon_i$ under the constraint $t_i \bm{w}^T \phi (\bm{x}_i \geq 1 - \epsilon_i)$. The dual formulation with slack is to maximize
+\begin{equation}
+    L = \sum_i \alpha_i - \frac{1}{2} \sum_i \alpha_i \alpha_j t_i t_j \phi (\bm{x}_i)^T \phi (\bm{x}_j)
+\end{equation}
+with the constraint $ 0 \leq \alpha_i \leq C, \forall i$.
 
 \subsection{Lecture 10}
 
@@ -575,13 +662,38 @@ f_{bag}(\bm{x}) = \frac{1}{b} \sum_{b=1}^{B} f_{b}(\bm{x}).
 Conclusion is bagging is a procedure to reduce the variance of our classifier (when labelled training data is limited). Thus implies it is a powerful algorithm for controlling overfitting. Note it only produces good results for high variance, low bias classifiers.
 
 \subsection{Ensemble Method: Forest}
-Equal to bagging but in addition has a random feature selection at each node. It is suited for multi-class problems.
+Equal to bagging but in addition has a random feature selection at each node. Trees are less correlated, i.e. even higher variance between weak learners.  It is suited for multi-class problems.
 
-\subsection{Ensemble Method: Forest}
+\subsection{Ensemble Method: Boosting}
+A diverse and complementary set of high-bias classifiers, with performance better than change, combined by voting
+\begin{equation}
+f_{v}({\bm{x}}) = sign(\sum_{t=i}^Th_{t}(\bm{x})),
+\end{equation}
+can produce a classifier with a low-bias. Here $h_{t} \in \mathcal{H}$ where $\mathcal{H}$ is family of weak classifiers function. The input is normal data, however the output is 
+\begin{equation}
+f_{T}({\bm{x}}) = sign( \sum_{t=i}^T \alpha_{t} h_{t}(\bm{x})), or,  \sum_{t=i}^T \alpha_{t} h_{t}(\bm{x}))
+\end{equation}
+Where $\alpha_{t}$ is confidence/reliability. The core ideas are
+\begin{enumerate}
+\item Performance of classifiers $h_{1}, . . . , h_{t}$ helps define $h_{t+1}$. Remember: Each $h_{t} \in H$.
+\item Maintain weights for each training example.
+\item Large $\bm{w}_{i}^{t}$ implies that $\vec{x}_{i}$ has stronger influence on $h_{t}$.
+\item For each iteration the $\bm{w}_{i}^{t}$  increases or decreases if $\vec{x}_{i}$ is wrongly or correctly classified by $h_{t}$.
+\end{enumerate}
 
+\subsection{Adaboost Algorithm }
+Given labelled training data and weak classifiers. The adaboost algorithm works by
+\begin{enumerate}
+\item set the weight vector to $1/m$ for each j.
+\item Compute the reliability coefficient 
+\begin{equation}
+\alpha_{t} = \log_{e} (\frac{1-\epsilon_{t}}{\epsilon_{t}}).
+\end{equation}
+Note that $epsilon_{t}$ must be less than 0.5 and break out of the loop if it is approximately 0.5.
 
-
-
+\item Update the weights using $w_{j}^{t+1} =w_{j}^{t} \exp (-\alpha_{t} y_{j} h_{t} (\bm{x}_{j}) ) $
+\item Normalize the weights so that they sum to 1.
+\end{enumerate}
 
 
 

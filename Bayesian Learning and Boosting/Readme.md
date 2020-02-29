@@ -244,7 +244,9 @@ Answer: The classification accuracy is improved for the reason as 5a).
 |   70  | 88.9 |  
 |   80  | 93.3|  
 |   90  | 88.9 |  
+
 Final mean classification accuracy  92.4 with standard deviation 3.71.
+
 # Decision Tree Boosting
 | Trial      | Accuracy      |
 | ------------- |:-------------:| 
@@ -258,6 +260,7 @@ Final mean classification accuracy  92.4 with standard deviation 3.71.
 |   70  | 93.3|  
 |   80  | 93.3|  
 |   90  | 93.3 |  
+
 Final mean classification accuracy  94.6 with standard deviation 3.67.
 
 
@@ -286,11 +289,19 @@ Answer: Yes this is due to boosting results in a low-bias classifier, the reason
 
 > 1. Outliers
 
+Answer: 
+
 > 2. Irrelevant inputs: part of the feature space is irrelevant
+
+Answer: 
 
 > 3. Predictive power
 
+Answer: 
+
 > 4. Mixed types of data: binary, categorical or continuous features, etc.
+
+Answer: 
 
 > 5. Scalability: the dimension of the data, D, is large or the number of instances, N, is large, or both.
 

@@ -268,8 +268,8 @@ Final mean classification accuracy  94.6 with standard deviation 3.67.
 Answer: 
 
 <p float="left">
-  <img src="dt.png" width="400" />
-  <img src="dtb.png" width="400" /> 
+  <img src="dt.PNG" width="400" />
+  <img src="dtb.PNG" width="400" /> 
 </p>
 
 6c)

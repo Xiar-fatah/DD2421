@@ -210,7 +210,7 @@ Answer: The classification accuracy for the ensemble method compared to the basi
 Answer: 
 
 <p>
-    <img src="betteclas.png" width="400" />
+    <img src="betterclas.PNG" width="400" />
     <em>Plot for the improved iris classifier. </em>
 
 </p>

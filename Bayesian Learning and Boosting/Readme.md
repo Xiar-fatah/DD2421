@@ -265,24 +265,36 @@ Final mean classification accuracy  94.6 with standard deviation 3.67.
 
 > Plot the decision boundary of the boosted classifier on iris and compare it with that of the basic. What differences do you notice? Is the boundary of the boosted version more complex?
 
-Answer: 
+Answer: The boosted decision tree boundary is more complex in comparision to the basic decision tree. 
 
 <p float="left">
   <img src="dt.PNG" width="400" />
   <img src="dtb.PNG" width="400" /> 
+<em>Left: is the decision tree boundary. Right: boosted decision tree boundary </em>
+
 </p>
 
 6c)
 
 > Can we make up for not using a more advanced model in the basic classifier (e.g. independent features) by using boosting?
 
+Answer: Yes this is due to boosting results in a low-bias classifier, the reason to use a more complex model is to attempt to reach a low-bias classifier.
+
+7. 
+
+> If you had to pick a classifier, naive Bayes or a decision tree or the boosted versions of these, which one would you pick? Motivate from the following criteria:
+
+> 1. Outliers
+
+> 2. Irrelevant inputs: part of the feature space is irrelevant
+
+> 3. Predictive power
+
+> 4. Mixed types of data: binary, categorical or continuous features, etc.
+
+> 5. Scalability: the dimension of the data, D, is large or the number of instances, N, is large, or both.
+
 Answer: 
-
-
-
-
-
-
 
 
 

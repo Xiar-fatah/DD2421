@@ -299,7 +299,7 @@ testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='iris',split=0.
 
 
 
-#plotBoundary(BoostClassifier(BayesClassifier()), dataset='iris',split=0.7)
+plotBoundary(BoostClassifier(BayesClassifier()), dataset='iris',split=0.7)
 
 
 # Now repeat the steps with a decision tree classifier.

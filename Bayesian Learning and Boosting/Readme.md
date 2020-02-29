@@ -231,7 +231,39 @@ Answer: Yes this is due to boosting results in a low-bias classifier, the reason
 
 Answer: The classification accuracy is improved for the reason as 5a).
 
-# Decision Tree
+# Decision Tree Vowels
+| Trial      | Accuracy      |
+| ------------- |:-------------:| 
+|0    | 63.6 | 
+|10     | 68.8|  
+|20 |   63.6| 
+|  30   |66.9|  
+|    40 | 59.7|  
+|   50  |63 |  
+|   60  | 59.7|  
+|   70  | 68.8 |  
+|   80  |  59.7|  
+|   90  |68.2 |  
+
+Final mean classification accuracy  64.1 with standard deviation 4.
+
+# Decision Tree Boosting Vowels
+| Trial      | Accuracy      |
+| ------------- |:-------------:| 
+|0    | 85.7 | 
+|10     | 89.6|  
+|20 |   87 | 
+|  30   | 92.2|  
+|    40 | 85.1|  
+|   50  |80.5 |  
+|   60  | 89|  
+|   70  | 85.7 |  
+|   80  | 86.4|  
+|   90  | 84.4|
+
+Final mean classification accuracy  87 with standard deviation 2.71.
+
+# Decision Tree Iris
 | Trial      | Accuracy      |
 | ------------- |:-------------:| 
 |0    | 95.6 | 
@@ -247,7 +279,7 @@ Answer: The classification accuracy is improved for the reason as 5a).
 
 Final mean classification accuracy  92.4 with standard deviation 3.71.
 
-# Decision Tree Boosting
+# Decision Tree Boosting Iris
 | Trial      | Accuracy      |
 | ------------- |:-------------:| 
 |0    | 95.6 | 

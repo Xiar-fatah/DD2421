@@ -321,23 +321,23 @@ Answer: Yes this is due to boosting results in a low-bias classifier, the reason
 
 > 1. Outliers
 
-Answer: 
+Answer: I would pick the Naive Bayes. Decision trees are robust to outliers due to their splitting ability, however they tend to overfit. The reason behind why not choosing a boosted version is due to the boosted version of the classifier continue improving on the past version of the classifiers in consideration to their error. 
 
 > 2. Irrelevant inputs: part of the feature space is irrelevant
 
-Answer: 
+Answer: Decision tree will filter out the irrelevant inputs in consideration to their splitting. The reason for not using boosting is that it is sensitive to outliers. Naive Bayes can handle irrelevant inputs to an extend.
 
 > 3. Predictive power
 
-Answer: 
+Answer: Naive bayes boosted produces a strong classifier that does not tend to overfit.
 
 > 4. Mixed types of data: binary, categorical or continuous features, etc.
 
-Answer: 
+Answer: Naive Bayes performs better than decision trees in the category of continuous features.
 
 > 5. Scalability: the dimension of the data, D, is large or the number of instances, N, is large, or both.
 
-Answer: 
+Answer: Naive Bayes can perform well with a small dataset. However, decision trees shines when the dataset is large.
 
 
 

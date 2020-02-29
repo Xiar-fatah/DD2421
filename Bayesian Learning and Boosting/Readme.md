@@ -199,17 +199,25 @@ Final mean classification accuracy  80.2 with standard deviation 3.52.
 
 5a)
 
-> Is there any improvement in classication accuracy? Why/why not?
+> Is there any improvement in classification accuracy? Why/why not?
+
+Answer: The classification accuracy for the ensemble method compared to the basic classifier perform better. This is due to a collection of high-bias classifiers combined in the form of boosting can create one classifier with low bias.
 
 5b)
 
-> Plot the decision boundary of the boosted classier on iris and compare it with
-that of the basic. What dierences do you notice? Is the boundary of the boosted
-version more complex?
+> Plot the decision boundary of the boosted classifier on iris and compare it with that of the basic. What differences do you notice? Is the boundary of the boosted version more complex?
+
+Answer: 
+
+<p>
+    <img src="betteclas.png" width="400" />
+    <em>Plot for the improved iris classifier. </em>
+
+</p>
 
 5c)
 
-> Can we make up for not using a more advanced model in the basic classier
+> Can we make up for not using a more advanced model in the basic classifier
 (e.g. independent features) by using boosting?
 
 

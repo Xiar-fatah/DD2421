@@ -223,19 +223,54 @@ Answer: Yes this is due to boosting results in a low-bias classifier, the reason
 
 6.
 
->  We have implemented a class DecisionTreeClassifier based upon skLearns decision tree classier. The skLearn implementation is similar to the one used in the first lab, however, here the values are continuous and we use the default Gini index to compute the split. Test the decision tree classier on the vowels and iris data sets. Repeat but now by passing it as an argument to the BoostClassifier object. Answer questions 1-3 in assignment 5 for the decision tree.
+>  We have implemented a class DecisionTreeClassifier based upon skLearns decision tree classier. The skLearn implementation is similar to the one used in the first lab, however, here the values are continuous and we use the default Gini index to compute the split. Test the decision tree classifier on the vowels and iris data sets. Repeat but now by passing it as an argument to the BoostClassifier object. Answer questions 1-3 in assignment 5 for the decision tree.
 
 6a)
 
 > Is there any improvement in classification accuracy? Why/why not?
 
-Answer: 
+Answer: The classification accuracy is improved for the reason as 5a).
+
+# Decision Tree
+| Trial      | Accuracy      |
+| ------------- |:-------------:| 
+|0    | 95.6 | 
+|10     | 100|  
+|20 |   91.1 | 
+|  30   |91.1 |  
+|    40 | 93.3|  
+|   50  |91.1 |  
+|   60  | 88.9|  
+|   70  | 88.9 |  
+|   80  | 93.3|  
+|   90  | 88.9 |  
+Final mean classification accuracy  92.4 with standard deviation 3.71.
+# Decision Tree Boosting
+| Trial      | Accuracy      |
+| ------------- |:-------------:| 
+|0    | 95.6 | 
+|10     | 100|  
+|20 |   95.6| 
+|  30   |91.1 |  
+|    40 | 95.6|  
+|   50  |88.9|  
+|   60  | 88.9|  
+|   70  | 93.3|  
+|   80  | 93.3|  
+|   90  | 93.3 |  
+Final mean classification accuracy  94.6 with standard deviation 3.67.
+
 
 6b)
 
 > Plot the decision boundary of the boosted classifier on iris and compare it with that of the basic. What differences do you notice? Is the boundary of the boosted version more complex?
 
 Answer: 
+
+<p float="left">
+  <img src="dt.PNG" width="400" />
+  <img src="dtb.PNG" width="400" /> 
+</p>
 
 6c)
 

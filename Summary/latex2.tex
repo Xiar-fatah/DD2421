@@ -528,6 +528,23 @@ More complex models fit the data very well (large $Pr(D|\theta)$ and $Pr(\theta|
 \item sometimes we will have a non-informative prior of $\vec{W}$, but Bayesian methods carry uncertainty estimates
 \end{enumerate}
 
+\subsection{K-means}
+\begin{enumerate}
+    \item Describes each class with a centroid.
+    \item A points belongs to a class if the corresponding centroid is closest (Euclidean distance) . 
+    \item It is a iterative procedure that is guaranteed to converge.
+    \item However, not guaranteed to find the optimal solution.
+\end{enumerate}
+
+K-means: limits of Euclidean distance
+
+\begin{enumerate}
+    \item The Euclidean distance is isotropic, that mean it is equal in all directions in all dimensions.
+    \item This favors spherical clusters.
+    \item The size of the clusters is controlled by the distances between them.
+\end{enumerate}
+
+
 \subsection{Expectation Maximization}
 Fitting model parameters with missing (latent) variables
 \begin{equation}

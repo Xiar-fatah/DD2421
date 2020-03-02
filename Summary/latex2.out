@@ -1,0 +1,79 @@
+\BOOKMARK [1][-]{section.1}{Lecture 1}{}% 1
+\BOOKMARK [1][-]{section.2}{Lecture 2}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Decision Tree}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{How to build a Tree}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{How to ask the best questions?}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Gini impurity}{subsection.2.3}% 6
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Entropy}{subsection.2.3}% 7
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Information gain}{subsection.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Best question}{subsection.2.3}% 9
+\BOOKMARK [2][-]{subsection.2.4}{Overfitting}{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Pruning}{subsection.2.4}% 11
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Validation set}{subsection.2.4}% 12
+\BOOKMARK [1][-]{section.3}{Lecture 3}{}% 13
+\BOOKMARK [2][-]{subsection.3.1}{Introduction}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.2}{Curse of Dimensionality}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.3}{The Bias-Variance Trade-off}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{Lecture 4}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{Linear Regression, A Parametric Method}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.2}{RANdom SAmpling Consensus}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.3}{Disadvantages with RANSAC}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.4}{k-NN Regression, A Non-parametric}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.5}{Parametric or Non-parametric Methods?}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.6}{Shrinkage Methods}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.7}{Ridge Regression}{section.4}% 24
+\BOOKMARK [2][-]{subsection.4.8}{The Lasso}{section.4}% 25
+\BOOKMARK [1][-]{section.5}{Lecture 5}{}% 26
+\BOOKMARK [2][-]{subsection.5.1}{Axiomatic definition of probabilities}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.2}{Random \(Stochastic\) Variables}{section.5}% 28
+\BOOKMARK [2][-]{subsection.5.3}{Types of Random Variables}{section.5}% 29
+\BOOKMARK [2][-]{subsection.5.4}{Joint Probabilities}{section.5}% 30
+\BOOKMARK [2][-]{subsection.5.5}{Marginalization}{section.5}% 31
+\BOOKMARK [2][-]{subsection.5.6}{Conditional Probabilities}{section.5}% 32
+\BOOKMARK [2][-]{subsection.5.7}{Common Distributions}{section.5}% 33
+\BOOKMARK [2][-]{subsection.5.8}{Central Limit Theorem}{section.5}% 34
+\BOOKMARK [2][-]{subsection.5.9}{Expectation}{section.5}% 35
+\BOOKMARK [2][-]{subsection.5.10}{General Machine Learning Problem}{section.5}% 36
+\BOOKMARK [2][-]{subsection.5.11}{Bayes's Rule}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.12}{Probabilistic Regression}{section.5}% 38
+\BOOKMARK [2][-]{subsection.5.13}{Selecting the most probable hypothesis}{section.5}% 39
+\BOOKMARK [1][-]{section.6}{Lecture 6}{}% 40
+\BOOKMARK [2][-]{subsection.6.1}{Introduction}{section.6}% 41
+\BOOKMARK [2][-]{subsection.6.2}{Discriminative modeling}{section.6}% 42
+\BOOKMARK [2][-]{subsection.6.3}{Generative Modeling}{section.6}% 43
+\BOOKMARK [2][-]{subsection.6.4}{Discriminative vs Generative Models}{section.6}% 44
+\BOOKMARK [2][-]{subsection.6.5}{Parametric vs Non-parametric Inference}{section.6}% 45
+\BOOKMARK [2][-]{subsection.6.6}{Maximum Likelihood \(ML\) Estimate}{section.6}% 46
+\BOOKMARK [2][-]{subsection.6.7}{Curse of Dimensionality}{section.6}% 47
+\BOOKMARK [2][-]{subsection.6.8}{Naive Bayes Classifier}{section.6}% 48
+\BOOKMARK [1][-]{section.7}{Lecture 7}{}% 49
+\BOOKMARK [2][-]{subsection.7.1}{Maximum a Posteriori Estimation}{section.7}% 50
+\BOOKMARK [2][-]{subsection.7.2}{Limitation of Linear Regression}{section.7}% 51
+\BOOKMARK [2][-]{subsection.7.3}{Impact of different priors}{section.7}% 52
+\BOOKMARK [2][-]{subsection.7.4}{Bayesian estimation}{section.7}% 53
+\BOOKMARK [2][-]{subsection.7.5}{Bayesian Linear Regression}{section.7}% 54
+\BOOKMARK [2][-]{subsection.7.6}{Occam's Razor}{section.7}% 55
+\BOOKMARK [2][-]{subsection.7.7}{Limitations of Bayesian Non-parametric Methods}{section.7}% 56
+\BOOKMARK [2][-]{subsection.7.8}{Expectation Maximization}{section.7}% 57
+\BOOKMARK [2][-]{subsection.7.9}{EM properties}{section.7}% 58
+\BOOKMARK [2][-]{subsection.7.10}{Lecture 8}{section.7}% 59
+\BOOKMARK [1][-]{section.8}{Training a Linear Separator}{}% 60
+\BOOKMARK [2][-]{subsection.8.1}{Percepton Learning}{section.8}% 61
+\BOOKMARK [2][-]{subsection.8.2}{Delta rule}{section.8}% 62
+\BOOKMARK [2][-]{subsection.8.3}{Linear Separation}{section.8}% 63
+\BOOKMARK [2][-]{subsection.8.4}{Structural Risk Minimization}{section.8}% 64
+\BOOKMARK [2][-]{subsection.8.5}{Support Vector Machine}{section.8}% 65
+\BOOKMARK [2][-]{subsection.8.6}{Kernels}{section.8}% 66
+\BOOKMARK [2][-]{subsection.8.7}{Slack}{section.8}% 67
+\BOOKMARK [1][-]{section.9}{Lecture 9}{}% 68
+\BOOKMARK [1][-]{section.10}{Lecture 10}{}% 69
+\BOOKMARK [2][-]{subsection.10.1}{Introduction}{section.10}% 70
+\BOOKMARK [2][-]{subsection.10.2}{The Wisdom of Crowds}{section.10}% 71
+\BOOKMARK [2][-]{subsection.10.3}{Combining Classifiers}{section.10}% 72
+\BOOKMARK [2][-]{subsection.10.4}{Ensemble Method: Baggning}{section.10}% 73
+\BOOKMARK [2][-]{subsection.10.5}{Ensemble Method: Forest}{section.10}% 74
+\BOOKMARK [2][-]{subsection.10.6}{Ensemble Method: Boosting}{section.10}% 75
+\BOOKMARK [2][-]{subsection.10.7}{Adaboost Algorithm }{section.10}% 76
+\BOOKMARK [1][-]{section.11}{Lecture 11}{}% 77
+\BOOKMARK [2][-]{subsection.11.1}{Implementation of Principal Component Analysis}{section.11}% 78
+\BOOKMARK [2][-]{subsection.11.2}{Maximum variance criterion}{section.11}% 79

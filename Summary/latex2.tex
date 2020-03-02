@@ -204,7 +204,7 @@ However, this issues are tackled within MLESAC that evaluates the quality of the
 
 
 \subsection{k-NN Regression, A Non-parametric}
-The k-NN regression method is closely related to the k-NN classifier. Given a value for K and a prediction point $x_0$, k-NN regression first identiffies the K training observations that are closest to $x_0$ represented by $N_0$. It then estimates $f(x_0)$ using the average of all the training responses in $N_0$. In other words
+The k-NN regression method is closely related to the k-NN classifier. Given a value for K and a prediction point $x_0$, k-NN regression first identifies the K training observations that are closest to $x_0$ represented by $N_0$. It then estimates $f(x_0)$ using the average of all the training responses in $N_0$. In other words
 \begin{equation}
     \hat{f(x_0)} = \frac{1}{K} \sum_{x_i \in N_0} y_i.
 \end{equation}
@@ -372,6 +372,12 @@ y_{MLE} = arg max_{y \in \mathcal{Y}} Pr(\bm{X} = \bm{x} |Y = y)
 
 \subsection{Introduction}
 Previous lecture Bayes' theorem was mentioned. However how does one go by to obtain the prior, likelihood and evidence from data?
+\subsection{Discriminative modeling}
+A discriminative classifier tries to model by just depending on the observed data while learning how to do the classifcation from the given statistics
+
+\subsection{Generative Modeling}
+A generative algorithm models how the data is generated in order to categorize a signal. It asks: based on my generation assumptions, which category is most likely to generate this signal? A discriminative  algorithm does not care how the data was generated.
+
 \subsection{Discriminative vs Generative Models}
 \begin{table}[!ht]
 \begin{center}
@@ -384,6 +390,12 @@ Example: Logistic Regression & Naive Bayes\\ \hline
 \end{center}
 \label{default}
 \end{table}%
+\begin{enumerate}
+\item The discriminative modelling:  Tries to learn $Pr(y|\vec{x},D)$ directly from data and later to classify the data
+\item This models tries to learn $Pr(\vec{x},y,D)$ which later is transformed into $Pr(y | \vec{x},D)$  for classification. This is done by conditional probability.
+\end{enumerate}
+
+
 
 \subsection{Parametric vs Non-parametric Inference}
 The posterior, $Pr(y|\vec{x}) = Pr(y|\vec{x},\theta)$, distribution in consideration data is characterized by parameters $\theta$.
@@ -468,6 +480,17 @@ whereas the term $log Pr(\theta)$ works as a regularizer. See the example on the
 \item We don’t want $Pr(y|\vec{x},\vec{w})$, but instead $P r(y|\vec{x},D)$
 \end{enumerate}
 
+\subsection{Impact of different priors}
+For linear regression $y = \bm{w}^T \bm{x} + \epsilon$, MAP estimation of $\bm{w}$ performs differently considering the prior we assume.
+\begin{equation}
+    \bm{w}^*(p) =  \arg \min_{\bm{w}} [\sum_{n=1}^N(y_n - \bm{w}^T \bm{x})^2 + \lambda \sum_{d = 1}^D |w_d|^p]
+\end{equation}
+
+\begin{enumerate}
+    \item $\lambda = 0$ or $W_d\sim$ Uniform: just fit the data
+    \item $\lambda > 0$ and assuming independent and identically distributed, iid, Normal (p = 2): fit the data and make $\bm{w}$ short, this is known as ridge regression.
+    \item $\lambda > 0$ and assuming iid Laplace (p = 1): fit the data and make $\bm{w}$ sparse, this is known as LASSO.
+\end{enumerate}
 \subsection{Bayesian estimation}
 \begin{enumerate}
 \item ML: $D \to \theta_{ML} \to Pr(y | \vec{x}, \theta_{ML})$
@@ -518,6 +541,15 @@ assignment of data point xi to a component of the mixture
 \item Optimize likelihood of the complete data over N data points
 \end{enumerate}
 \subsection{EM properties}
+
+
+
+
+
+
+
+
+
 
 \subsection{Lecture 8}
 \section{Training a Linear Separator}

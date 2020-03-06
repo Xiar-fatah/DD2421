@@ -25,7 +25,7 @@ Answer:
         Assuming the first column is the x-values and the second column is the
         y-values.
         """
-        for i in range(2): 
+        for i in range(2): <- Suppose to be Ndims
             temp = []
             for rows in range(0,xlc.shape[0]):
                 temp.append(pow(xlc[rows][i]-mu[jdx][i],2))
